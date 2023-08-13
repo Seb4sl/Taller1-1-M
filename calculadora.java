@@ -1,41 +1,30 @@
-package com.mycompany.calculadora;
-
-import java.util.Scanner; //importar la clase Scanner del paquete
-
-public class Calculadora {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); //se utiliza para leer la entrada del usuario desde la consola o desde otro flujo de entrada
-
-        System.out.println("Bienvenido a su calculadora basica");
-        System.out.print("Ingresa el primer número: "); 
-        double num1 = scanner.nextDouble();
-
-        System.out.print("Ingresa el segundo número: ");
-        double num2 = scanner.nextDouble();
-
-        System.out.println("Elige una operación:");
-        System.out.println("1. Suma");
-        System.out.println("2. Resta");
-      System.out.println("3. Multiplicación");
-        System.out.println("4. División");
-        int opcion = scanner.nextInt();
-
-        double resultado = 0;
-
-        switch (opcion) {
-            case 1:
-                resultado = sumar(num1, num2);
-                break;
-          case 2:
-                resultado = restar(num1, num2);
-              break;
-            case 3:
-                resultado = multiplicar(num1, num2);
-                break;
-            case 4:
-                resultado = dividir(num1, num2);
-                break;
-            default:
-                System.out.println("Opción inválida");
-
+// cambio de sintaxis
   
+package com.mycompany.calculadora;
+import java.util.Scanner; //libreria para poder usar Scanner
+/**
+ *
+ * @author jlarr
+ */
+public class Calculadora {
+
+    
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner (System.in); //in = imput, entrada de datos
+    float n1, n2, suma, resta, multiplicacion, division;
+    int opcion;
+    
+        System.out.println("CALCULADORA");
+        
+        System.out.println("Digite el primer numero: ");
+        n1 = entrada.nextFloat();
+        System.out.println("Digite el segundo numero: ");
+        n2 = entrada.nextFloat();
+        
+        System.out.println("Que operacion le gustaria iniciar? ");
+        System.out.println(" 1. Suma \n 2. Resta \n 3. Multiplicacion \n 4. Division");
+        opcion = entrada.nextInt();
+        
+
+       
+    switch(opcion){
