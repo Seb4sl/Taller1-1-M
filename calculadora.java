@@ -9,21 +9,22 @@ import java.util.Scanner; //libreria para poder usar Scanner
 public class Calculadora {
 
     
-   public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner entrada = new Scanner (System.in); //in = imput, entrada de datos
-    float n1, n2, suma, resta, multiplicacion, division;
+    int n1,n2;
+    float suma, resta, multiplicacion, division;
 
     int opcion;
     
         System.out.println("CALCULADORA");
         
         System.out.println("Digite el primer numero: ");
-        n1 = entrada.nextFloat();
+        n1 = entrada.nextInt();
         System.out.println("Digite el segundo numero: ");
-        n2 = entrada.nextFloat();
+        n2 = entrada.nextInt();
         
         System.out.println("Que operacion le gustaria iniciar? ");
-        System.out.println(" 1. Suma \n 2. Resta \n 3. Multiplicacion \n 4. Division \n 5. Seno \n 6. Coseno \n 7. Tangente \n 8. Salir");
+        System.out.println(" 1. Suma \n 2. Resta \n 3. Multiplicacion \n 4. Division \n 5. Seno \n 6. Coseno \n 7. Tangente \n 8. Potencia \n 9. Raiz \n 10. Cal. IVA \n 11. Salir");
         opcion = entrada.nextInt();
 
     switch(opcion){
@@ -43,6 +44,53 @@ public class Calculadora {
             }        
        
         case 4 -> {
-            division = n1 / n2;
+            division = n1 / n2; //PORQUE NO ME APARECE EL MENSAJE DEL IF?
+            if(n2==0){
+                System.out.println("Error de calculo, no se puede dividir sobre 0");
+            }else{
             System.out.println("El resultado de "+ n1 + "/"+ n2 + "es igual a"+ division );
             }   
+        }
+        
+        case 5 -> {
+        double resultado;
+        double angulo;
+        
+        
+            System.out.println("Digite el Angulo en grados");
+            angulo = entrada.nextDouble();
+            
+            double anguloRad = Math.toRadians(angulo);
+            resultado = Math.sin(anguloRad);
+            
+            System.out.println("El seno de "+angulo+"° es "+resultado);
+            }   
+        
+        case 6 -> {
+        double resultado;
+        double angulo;
+        
+        
+            System.out.println("Digite el Angulo en grados");
+            angulo = entrada.nextDouble();
+            
+            double anguloRad = Math.toRadians(angulo);
+            resultado = Math.cos(anguloRad);
+            
+            System.out.println("El coseno de "+angulo+"° es "+resultado);
+            }   
+        
+        case 7 -> {
+        double resultado;
+        double angulo;
+        
+        
+            System.out.println("Digite el Angulo en grados");
+            angulo = entrada.nextDouble();
+            
+            double anguloRad = Math.toRadians(angulo);
+            resultado = Math.tan(anguloRad);
+            
+            System.out.println("La tangente de "+angulo+"° es "+resultado);
+            }   
+        
