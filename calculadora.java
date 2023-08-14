@@ -94,3 +94,42 @@ public class Calculadora {
             System.out.println("La tangente de "+angulo+"° es "+resultado);
             }   
         
+        case 8 -> {
+        double base;
+        double potencia;
+
+            System.out.println("Digite la base");
+            base = entrada.nextDouble();
+            
+            System.out.println("Digite la potencia");
+            potencia = entrada.nextDouble();
+            
+        double resultado = Math.pow(base, potencia);
+            
+            System.out.println(+base+"^"+potencia+"="+resultado);
+            }       
+        
+        case 9 -> {
+        int base;
+        int raiz;
+
+            
+            System.out.println("Digite la base");
+            base = entrada.nextInt();
+
+            System.out.println("Digite la raiz");
+            raiz = entrada.nextInt();
+            
+        double resultado = Math.pow(base, 1/raiz);
+        
+            System.out.println(+raiz+"raiz de "+base+"="+resultado);
+             
+        }
+        
+        default -> System.out.println("El numero no fue encontrado");      
+        
+        
+    }
+       
+    }
+}
