@@ -5,17 +5,6 @@ import java.util.Scanner; //libreria para poder usar Scanner
 /**
  *
  * @author jlarr
- */
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-package com.mycompany.calculadora;
-import java.util.Scanner; //libreria para poder usar Scanner
-/**
- *
- * @author jlarr
- */
 public class Calculadora {
 
     
@@ -167,6 +156,20 @@ public class Calculadora {
         double resultado = Math.pow(base, 1/raiz);
         
             System.out.println(+raiz+"raiz de "+base+"="+resultado);
+             break;
+        }
+        
+        case 10 -> {
+        
+        double precio;
+
+
+         System.out.println("Ingrese el precio total de la compra: ");
+        precio = entrada.nextDouble();
+        double resultado = precio * 0.19; 
+        System.out.println("El precio total sin IVA es de: "+precio);
+        System.out.println("El precio a pagar (IVA incluido) es de: "+resultado);
+
              break;
         }
         default -> System.out.println("El numero no fue encontrado");   
