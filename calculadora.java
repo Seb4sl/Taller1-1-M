@@ -1,14 +1,19 @@
-// cambio de sintaxis
-  
+// CALCULADORA FINAL
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
 package com.mycompany.calculadora;
 import java.util.Scanner; //libreria para poder usar Scanner
 /**
  *
  * @author jlarr
+ */
 public class Calculadora {
 
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner entrada = new Scanner (System.in); //in = imput, entrada de datos
    
    
@@ -24,10 +29,8 @@ public class Calculadora {
         System.out.println("Digite una opcion del 1-11");
         opcion = entrada.nextInt();
         
-        }while(opcion<0 || opcion<11);
-        if(opcion ==11){
-            break;
-
+        }while(opcion<0);
+   
     switch(opcion){ //porque "unreachable" statement???
         case 1 -> {
             
@@ -37,7 +40,8 @@ public class Calculadora {
         System.out.println("Digite el segundo numero: ");
         n2 = entrada.nextInt();
             suma = n1 + n2;
-            System.out.println("El resultado de "+ n1 + "+"+ n2 + "es igual a"+ suma );
+            System.out.println("El resultado de "+ n1 + " + "+ n2 + " es igual a "+ suma );
+            Thread.sleep(5000);
             break;
             }
         
@@ -49,7 +53,8 @@ public class Calculadora {
         System.out.println("Digite el segundo numero: ");
         n2 = entrada.nextInt();
             resta = n1 - n2;
-            System.out.println("El resultado de "+ n1 + "-"+ n2 + "es igual a"+ resta );
+            System.out.println("El resultado de "+ n1 + " - "+ n2 + " es igual a "+ resta );
+            Thread.sleep(5000);
             break;
             }    
         
@@ -61,7 +66,8 @@ public class Calculadora {
         System.out.println("Digite el segundo numero: ");
         n2 = entrada.nextInt();
             multiplicacion = n1 * n2;
-            System.out.println("El resultado de "+ n1 + "X"+ n2 + "es igual a"+ multiplicacion );
+            System.out.println("El resultado de "+ n1 + " x "+ n2 + " es igual a "+ multiplicacion );
+            Thread.sleep(5000);
             break;
             }        
        
@@ -76,8 +82,9 @@ public class Calculadora {
             if(n2==0){
                 System.out.println("Error de calculo, no se puede dividir sobre 0");
             }else{
-            System.out.println("El resultado de "+ n1 + "/"+ n2 + "es igual a"+ division );
+            System.out.println("El resultado de "+ n1 + " / "+ n2 + " es igual a "+ division );
             }   
+            Thread.sleep(5000);
             break;
         }
         
@@ -92,7 +99,8 @@ public class Calculadora {
             double anguloRad = Math.toRadians(angulo);
             resultado = Math.sin(anguloRad);
             
-            System.out.println("El seno de "+angulo+"° es "+resultado);
+            System.out.println(" El seno de "+angulo+"° es "+resultado);
+            Thread.sleep(5000);
             break;
             }   
         
@@ -108,6 +116,7 @@ public class Calculadora {
             resultado = Math.cos(anguloRad);
             
             System.out.println("El coseno de "+angulo+"° es "+resultado);
+            Thread.sleep(5000);
             break;
             }   
         
@@ -123,6 +132,7 @@ public class Calculadora {
             resultado = Math.tan(anguloRad);
             
             System.out.println("La tangente de "+angulo+"° es "+resultado);
+            Thread.sleep(5000);
             break;
             }   
         
@@ -138,7 +148,8 @@ public class Calculadora {
             
         double resultado = Math.pow(base, potencia);
             
-            System.out.println(+base+"^"+potencia+"="+resultado);
+            System.out.println("La base "+base+" elevado a "+potencia+" = "+resultado);
+            Thread.sleep(5000);
             break;
             }       
         
@@ -155,32 +166,37 @@ public class Calculadora {
             
         double resultado = Math.pow(base, 1/raiz);
         
-            System.out.println(+raiz+"raiz de "+base+"="+resultado);
+            System.out.println(raiz+" raiz de "+base+" = "+resultado);
+            Thread.sleep(5000);
              break;
         }
         
         case 10 -> {
         
-        double precio;
+        float precio;
 
 
          System.out.println("Ingrese el precio total de la compra: ");
-        precio = entrada.nextDouble();
-        double resultado = precio * 0.19; 
+        precio = entrada.nextFloat();
+        double resultado = (precio * 0.19); 
+        double total = resultado + precio;
         System.out.println("El precio total sin IVA es de: "+precio);
-        System.out.println("El precio a pagar (IVA incluido) es de: "+resultado);
-
+        System.out.println("Al producto aumentele "+resultado);
+        System.out.println("El precio a pagar (IVA incluido) es de: "+total);
+        Thread.sleep(5000);
              break;
         }
-        default -> System.out.println("El numero no fue encontrado");   
-    }
-    if(opcion ==5){
-        break;
-    }
-            System.out.println("Programa finalizado");
+        
+        case 11 -> {
+        
        
+        System.out.println("Programa finalizado");
+        Thread.sleep(3000);
+         System.exit(0);
+        }
+        default -> System.out.println("El numero no fue encontrado");
+        
+    }   
     }
 }
     }
-}
-
