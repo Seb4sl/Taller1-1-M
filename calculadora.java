@@ -74,6 +74,11 @@ String signo, n1, n2;
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
         jButton2.setText("CAL. IVA");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setForeground(new java.awt.Color(0, 153, 153));
         jButton3.setText("+");
@@ -248,10 +253,20 @@ String signo, n1, n2;
         jButton22.setForeground(new java.awt.Color(0, 153, 153));
         jButton22.setText("COS");
         jButton22.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
 
         jButton23.setForeground(new java.awt.Color(0, 153, 153));
         jButton23.setText("TAN");
         jButton23.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
 
         jButton24.setForeground(new java.awt.Color(0, 153, 153));
         jButton24.setText("SEN");
@@ -311,10 +326,9 @@ String signo, n1, n2;
                                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                                             .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGap(19, 19, 19))
+                                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -367,7 +381,6 @@ String signo, n1, n2;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
@@ -517,8 +530,40 @@ String signo, n1, n2;
     }                                         
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+     //sen
+        if (!pantalla.getText().equals("")){
+            n1=pantalla.getText();
+            signo= "sen";
+            pantalla.setText("");
+        }  
     }                                         
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+     //cos
+        if (!pantalla.getText().equals("")){
+            n1=pantalla.getText();
+            signo= "cos";
+            pantalla.setText("");
+        } 
+    }                                         
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+     //tan
+        if (!pantalla.getText().equals("")){
+            n1=pantalla.getText();
+            signo= "tan";
+            pantalla.setText("");
+        } 
+    }                                         
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+     //IVA
+        if (!pantalla.getText().equals("")){
+            n1=pantalla.getText();
+            signo= "iva";
+            pantalla.setText("");
+        } 
+    }                                        
 
     public static boolean  ExistePunto(String cadena){
         boolean resultado;
@@ -549,8 +594,40 @@ String signo, n1, n2;
         if(signo.equals("*")){
             total = Double.parseDouble(n1)*Double.parseDouble(n2);
         }
+        if(signo.equals("√")){
+            double n_2= Double.parseDouble(n2);
+            double n_1= Double.parseDouble(n1);
+            total =Math.pow(n_2, 1/n_1);
+        }
+         if(signo.equals("^")){
+            double n_2= Double.parseDouble(n2);
+            double n_1= Double.parseDouble(n1);
+            total =Math.pow(n_1, n_2);
+        }
+         if(signo.equals("sen")){
+            double ang= Double.parseDouble(n2);
+            double anguloRad = Math.toRadians(ang);
+            total = 1*Math.sin(anguloRad);
+            
+         }
+         if(signo.equals("cos")){
+            double ang= Double.parseDouble(n2);
+            double anguloRad = Math.toRadians(ang);
+            total = 1*Math.cos(anguloRad);
+            
+         }         
+         if(signo.equals("tan")){
+            double ang= Double.parseDouble(n2);
+            double anguloRad = Math.toRadians(ang);
+            total = 1*Math.tan(anguloRad);
+            
+         }          
+         if(signo.equals("iva")){
+            total = Double.parseDouble(n1)*(Double.parseDouble(n2)/100);
+            
+         }          
+                  
 
-        
         resultado = total.toString();
         return resultado;
                 
